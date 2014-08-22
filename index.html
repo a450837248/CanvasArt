@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+	<head>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="800" style="display:block;margin:15px auto;border:1px solid #dedede;">
+		</canvas>
+	<script>
+			var params = [
+				{ p:[ {x:0,y:0}, {x:800,y:0}, {x:400,y:400} ], color:"#6d2dff" },
+				{ p:[ {x:0,y:0}, {x:400,y:400}, {x:0,y:800} ], color:"#f7103c" },
+				{ p:[ {x:0,y:800}, {x:200,y:600}, {x:400,y:800} ], color:"#b2bdff"},
+				{ p:[ {x:200,y:600}, {x:400,y:400}, {x:400,y:800} ], color:"#ff9c79"},
+				{ p:[ {x:400,y:400}, {x:600,y:600}, {x:400,y:800} ], color:"#ff9c79"},
+				{ p:[ {x:400,y:800}, {x:800,y:800}, {x:800,y:400} ], color:"#fff610"},
+				{ p:[ {x:400,y:400}, {x:600,y:200}, {x:600,y:600} ], color:"#ff68ff"},
+				{ p:[ {x:600,y:200}, {x:800,y:0}, {x:800,y:400}, {x:600,y:600}], color:"#03881d"}
+			]
+		    window.onload = function(){
+				var canvas = document.getElementById("canvas");
+				var context= canvas.getContext('2d');
+				for(var i = 0 ; i < params.length;i++)
+				draw(context,params[i]);
+			}
+			var draw = function(context,param){
+				var ctx = context;
+					ctx.beginPath();
+					ctx.moveTo(param.p[0].x,param.p[0].y);
+					for(var i = 1; i <param.p.length;i++){
+						ctx.lineTo(param.p[i].x,param.p[i].y);
+					}
+					ctx.closePath();
+					ctx.fillStyle = param.color;
+					ctx.fill();
+			}
+	</script>
+ </body>
+</html>

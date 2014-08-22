@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+
+<head>
+</head>
+
+<body>
+	<canvas id="canvas" width="800" height="800" style="display:block;margin:15px auto;border:1px solid #dedede;">
+	</canvas>
+	<script>
+		 	window.onload = function(){
+				var canvas = document.getElementById("canvas");
+				var context= canvas.getContext('2d');
+				draw(context,{radius:30,x:80,y:60,bck:false,ifClose:false})
+				draw(context,{radius:30,x:80,y:160,bck:false,ifClose:true})
+				draw(context,{radius:30,x:80,y:240,bck:true,ifClose:false})
+				draw(context,{radius:30,x:80,y:320,bck:true,ifClose:true})
+			}
+			var draw = function(ctx,params){
+				for(var i = 0 ; i < 10; i ++){
+					ctx.beginPath();
+					ctx.arc(params.radius + i * params.x,params.y,params.radius, 0, 2 * Math.PI*(i+1)/10,params.bck);
+					if(params.ifClose){ctx.closePath();}
+					ctx.stroke();
+				}
+			}
+	</script>
+</body>
+</html>
