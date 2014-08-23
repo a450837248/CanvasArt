@@ -101,6 +101,9 @@
 
 			updateBalls();
 			console.log(balls.length);
+			if(balls.length > 600){
+				balls = balls.slice(300);
+			}
 		}
 
 		function updateBalls() {
