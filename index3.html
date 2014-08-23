@@ -18,12 +18,13 @@
 			text-align: center;
 			font-size: 15rem;
 		}
-		#forWhat,#time{
-			color:#33B5E5;
+		#forWhat,
+		#time {
+			color: #33B5E5;
 			border-radius: 5px;
 			font-size: 18px;
 		}
-		#action{
+		#action {
 			border: none;
 			padding: 10px;
 			color: #33B5E5;
@@ -35,6 +36,13 @@
 </head>
 
 <body>
+
+	<div class="impress-not-supported">
+		<div class="fallback-message">
+			<p>你的浏览器<b>不支持</b>  早点洗洗睡把。。还不用chrome等啥了 对了我支持桌面 懒得去做多平台自适应了~</p>
+			<p>为了获得更好的体验，请使用最新的 <b>Chrome</b>, <b>Safari</b> 或者 <b>Firefox</b> 浏览器。</p>
+		</div>
+	</div>
 	<div id="impress">
 
 		<div id="title" class="step" data-x="0" data-y="0" data-scale="4">
@@ -46,15 +54,20 @@
 		</div>
 
 		<div id="big" class="step" data-x="4000" data-y="2100" data-rotate="180" data-scale="6">
-			<p><strong>开始吧 </strong><br><em>选择你等待的事情 或者 原因?</em></p>
-			<input type="text" id="forWhat" width="600"  />
+			<p><strong>开始吧 </strong>
+				<br><em>选择你等待的事情 或者 原因?</em>
+			</p>
+			<input type="text" id="forWhat" width="600" />
 		</div>
 		<div id="end" class="step" data-x="7000" data-y="2500" data-rotate="90" data-scale="6">
-			<p><strong>接着 </strong><br><em>选择你倒计时的日期</em></p>
-			<input type="date" id="time" width="1000"  />
+			<p><strong>接着 </strong>
+				<br><em>选择你倒计时的日期</em>
+			</p>
+			<input type="date" id="time" width="1000" />
 		</div>
 		<div class="step" data-x="-2600" data-y="-800" data-rotate-x="30" data-rotate-y="-60" data-rotate-z="300" data-scale="3">
-			<p><strong>最后点击开始吧! </strong><input type="button" value="Action" id="action" />
+			<p><strong>最后点击开始吧! </strong>
+				<input type="button" value="Action" id="action" />
 		</div>
 	</div>
 	<canvas id="canvas" width="1200" height="800" style="display:block;margin:15px auto;"></canvas>
@@ -75,7 +88,7 @@
 		var balls = [];
 		const colors = ["#33B5E5", "#0099CC", "#AA66CC", "#9933CC", "#99CC00", "#669900", "#FFBB33", "#FF8800", "#FF4444", "#CC0000"]
 
-		document.getElementById('action').onclick = function () {
+		 document.getElementById('action').onclick = function () {
 			document.getElementById("impress").className = "hide";
 			var getTime = document.getElementById("time").value;
 			endTime = getTime == "" ? new Date("2014-08-31 00:00:00") : new Date(getTime);
