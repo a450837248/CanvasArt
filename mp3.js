@@ -40,11 +40,11 @@ var music = function(id){
 	}
 	_this.fadeOut = function(){
 		var fadeOutInterval = setInterval(function(){
-			if(media.volume <= 0.02){
+			if(media.volume <= 0){
 				clearInterval(fadeOutInterval);
 				media.pause();
 			}else{
-				media.volume-=0.1;
+				media.volume=  Math.round(media.volume * 100)/100 - 0.05;
 			}
 		},300);
 	}
@@ -56,7 +56,7 @@ var music = function(id){
 				clearInterval(fadeInInterval);
 				manual= false;
 			}else{
-				media.volume+=0.05;
+				media.volume=  Math.round(media.volume * 100)/100 + 0.05;
 			}
 		},260);
 	}
