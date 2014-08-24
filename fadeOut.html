@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+	<meta charset="utf-8">
+	<title>淡然退出</title>
+	<style media="screen">
+		body {
+			overflow: hidden;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			font-family: "微软雅黑", cursive;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+		}
+		ul {
+			list-style: none;
+			width: 100%;
+			margin: auto;
+			padding: 0;
+		}
+		ul li {
+			line-height: 3rem;
+			padding: .1rem;
+			color: white;
+			text-shadow: #000 0 0 5px;
+			cursor: pointer;
+			border-bottom: 1px solid #dedede;
+		}
+		.music {
+			z-index: 1;
+			display: block;
+			margin-top: 10%;
+			width: 50%;
+			right: -25%;
+			left: 25%;
+			height: 20%;
+			position: absolute;
+			top: 0;
+		}
+		#musicPlayer {
+			width: 100%;
+			background: rgb(55, 200, 247);
+			border: 5px solid #1FB0F5;
+			border-radius: 6px;
+			box-shadow: rgb(38, 215, 240) 0 0 15px;
+			padding: 5px;
+		}
+		.control{
+			width: 100%;
+			display: block;
+			margin: 30px auto;
+		}
+		.control .fop,.control .fip{
+			display: inline-block;
+			width: 49%;
+			margin:0;
+			padding: 0;
+			color: white;
+			font-size:20px;
+			text-shadow: #000 0 0 5px;
+			text-decoration:none;
+		}
+		.control .fip{
+			text-align: right;
+		}
+	</style>
+	<script src="http://maroslaw.github.io/rainyday.js/dist/rainyday.0.1.2.min.js"></script>
+	<script>
+		function run() {
+			var image = document.getElementById('background');
+			image.onload = function () {
+				var engine = new RainyDay({
+					image: this
+				});
+				engine.rain([[1, 2, 600]]);
+				engine.rain([[5, 2, 0.9], [5, 2, 0.9], [5, 2, 5]], 50);
+			};
+			image.crossOrigin = 'anonymous';
+			image.src = 'http://i.imgur.com/OVQkDRE.jpg';
+		}
+	</script>
+	<script src="mp3.js"></script>
+	<script>
+		var play = new music("musicPlayer");
+		window.onload = function () {
+			play.init();
+		}
+	</script>
+</head>
+
+<body onload="run()">
+	<img id="background" alt="background" src="" />
+	<div class="music">
+		<audio id="musicPlayer" controls="false"></audio>
+		<div class="control">
+			<a href="javascript:void(0);" class="fop" id="fop">fadeOut pause</a>
+			<a href="javascript:void(0);" class="fip" id="fip">fadeIn  play</a>
+		</div>
+	</div>
+</body>
+</html>
