@@ -71,7 +71,7 @@ var music = function(id){
 		media_parent.appendChild(music_list_container);
 		for(var muisc in music_file){
 			var li = document.createElement("li");
-			li.innerHTML = music_file[muisc].name+"\t <b style='width:220px;text-align:right;display: inline-block;'>"+ music_file[muisc].author + "</b>";
+			li.innerHTML = music_file[muisc].name+"\t <b style='width:50%;text-align:right;display: inline-block;'>"+ music_file[muisc].author + "</b>";
 			music_list_container.appendChild(li);
 		}
 
