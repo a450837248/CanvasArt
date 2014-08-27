@@ -1,11 +1,9 @@
-var cv = document.getElementById('cv');
+var cv = document.getElementById('zll');
 var c = cv.getContext('2d');
 var txtDiv = document.getElementById('txt');
-var fileBtn = document.getElementById("up-button");
 var img = new Image();
 img.src = 'wish.jpg';
 img.onload = init; // 图片加载完开始转换
-fileBtn.onchange = getImg;
 
 // 根据灰度生成相应字符
 function toText(g) {
